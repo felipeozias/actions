@@ -1,10 +1,36 @@
-on: push
 name: 🔰 Build on push
-# run-name: 🔰🔰 ${{ github.actor }} is learning GitHub Actions
+run-name: 🔰🔰 ${{ github.actor }} is learning GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: Building project
-      - run: echo Felipe Ozias
+      - name: Checkout código-fonte
+        uses: actions/checkout@v2
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14" # ou a versão desejada
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Build da aplicação
+        run: npm run build
+
+      - name: Publicar artefato
+        uses: actions/upload-artifact@v2
+        with:
+          name: app
+          path: build
