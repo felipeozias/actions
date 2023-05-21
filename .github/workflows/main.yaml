@@ -47,7 +47,7 @@ jobs:
       #     EXCLUDE: "/dist/, /node_modules/, **.env, rebuild_app.sh, watcher.sh"
       # run: scp -i ${{ secrets.PRIVATE_KEY }} dist/* ubuntu@ec2-54-232-47-224.sa-east-1.compute.amazonaws.com:/server/oziascip
 
-      - name: Enviar arquivo para o servidor Ubuntu 🚀
+      - name: Enviar arquivo para o servidor Ubuntu 🚀🚀
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
