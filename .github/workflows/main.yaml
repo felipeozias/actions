@@ -33,7 +33,7 @@ jobs:
         run: echo Hello World
 
       - name: Teste de segret
-        run: Echo Hi ${{ secrets.TEST }}.
+        run: echo Hi ${{ secrets.TEST }}.
 
       - name: Fazer upload da pasta dist para o repositório
         uses: actions/upload-artifact@v2
