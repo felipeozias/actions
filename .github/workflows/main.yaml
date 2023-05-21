@@ -29,14 +29,6 @@ jobs:
       - name: Build da  aplicação
         run: yarn build
 
-      - name: Log de teste
-        run: echo Hello World
-
-      - name: Teste de secret
-        env:
-          TEST: ${{secrets.TEST}}
-        run: echo Hi ${{ secrets.TEST }} ✨.
-
       - name: Fazer upload da pasta dist para o repositório
         uses: actions/upload-artifact@v2
         with:
