@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout código-fonte
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Configurar Node.js
         uses: actions/setup-node@v2
@@ -32,8 +32,10 @@ jobs:
       - name: Log de teste
         run: echo Hello World
 
-      - name: Teste de segret
-        run: echo Hi ${{ secrets.TEST }}.
+      - name: Teste de secret
+        env:
+          TEST: ${{secrets.TEST}}
+        run: echo Hi ${{ secrets.TEST }} ✨.
 
       - name: Fazer upload da pasta dist para o repositório
         uses: actions/upload-artifact@v2
@@ -42,4 +44,13 @@ jobs:
           path: dist
 
       - name: Enviar arquivo para o servidor Ubuntu
-        run: scp -i ${{ secrets.PRIVATE_KEY }} dist/* ubuntu@ec2-54-232-47-224.sa-east-1.compute.amazonaws.com:/server/oziascip
+        uses: easingthemes/ssh-deploy@main
+        env:
+          PRYVATE_KEY: ${{secrets.PRIVATE_KEY}}
+          ARGS: "rltgoDzvO --delete"
+          SOURGE: "./"
+          REMOTE_HOST: ${{secrets.REMOTE_HOST}}
+          REMOTE_USER: ${{secrets.REMOTE_USER}}
+          TARGET: /home/${{secrets.REMOTE_USER}}
+          EXCLUDE: "/dist/, /node_modules/, **.env, rebuild_app.sh, watcher.sh"
+        # run: scp -i ${{ secrets.PRIVATE_KEY }} dist/* ubuntu@ec2-54-232-47-224.sa-east-1.compute.amazonaws.com:/server/oziascip
