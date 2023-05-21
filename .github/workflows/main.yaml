@@ -1,5 +1,5 @@
 name: 🔰 Build on push
-run-name: 🔰🔰 ${{ github.actor }} is learning GitHub Actions
+run-name: 🔰🔰 ${{ github.actor }} is learning GitHub Actions - ${{ github.TEST }}
 
 on:
   push:
