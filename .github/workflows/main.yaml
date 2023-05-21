@@ -24,13 +24,13 @@ jobs:
           node-version: "14" # ou a versão desejada
 
       - name: Instalar dependências
-        run: npm install
+        run: yarn
 
       - name: Build da aplicação
-        run: npm run build
+        run: yarn build
 
       - name: Publicar artefato
         uses: actions/upload-artifact@v2
         with:
           name: app
-          path: build
+          path: dist
