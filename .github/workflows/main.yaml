@@ -26,11 +26,11 @@ jobs:
       - name: Instalar dependências
         run: yarn
 
-      - name: Build da aplicação
+      - name: Build da  aplicação
         run: yarn build
 
-      - name: Publicar artefato
+      - name: Fazer upload da pasta dist para o repositório
         uses: actions/upload-artifact@v2
         with:
-          name: app
+          name: dist
           path: dist
