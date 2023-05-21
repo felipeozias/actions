@@ -5,11 +5,6 @@ name: 🔰 Build on push
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-      name: build
-      url: "google.com"
     steps:
       - uses: Building project
-      - run: npm install
-      - run: npm run dev
       - run: echo Felipe Ozias
