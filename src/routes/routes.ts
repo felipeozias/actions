@@ -8,7 +8,7 @@ router.use(Express.urlencoded({ extended: true }));
 
 // SIMULANDO UM BANCO DE DADOS
 let tarefas = [
-    { id: 1, descricao: "Tarefa 1", }, { id: 2, descricao: "Tarefa 2", }, { id: 3, descricao: "Tarefa 3", },
+    { id: 1, descricao: "Tarefa 1", }, { id: 2, descricao: "Tarefa 2", },
 ];
 
 // ----- ROTAS ------
