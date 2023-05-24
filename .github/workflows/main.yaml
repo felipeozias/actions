@@ -1,14 +1,7 @@
 name: 🔰 Build on push
-run-name: 🚀 ${{ github.actor }} is learning GitHub Actions💥
+run-name: 🚀 ${{ github.actor }} is learning GitHub Actions 💥
 
-on:
-  push:
-    branches:
-      - main
-
-  pull_request:
-    branches:
-      - main
+on: push
 
 jobs:
   build:
