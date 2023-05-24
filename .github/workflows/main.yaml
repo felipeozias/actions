@@ -1,11 +1,11 @@
 name: 🔰 Build on push
-run-name: 🚀 ${{ github.actor }} is learning GitHub Actions 💥
+run-name: 🚀 Ação disparada por ${{ github.actor }} 💥
 
 on: push
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu:latest
 
     steps:
       - name: Checkout código-fonte
