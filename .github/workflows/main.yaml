@@ -1,14 +1,7 @@
 name: 🔰 Build on push
 run-name: 🚀 ${{ github.actor }} is learning GitHub Actions💥
 
-on:
-  push:
-    branches:
-      - main
-
-  pull_request:
-    branches:
-      - main
+on: push
 
 jobs:
   build:
@@ -18,10 +11,10 @@ jobs:
       - name: Checkout código-fonte
         uses: actions/checkout@v3
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14" # ou a versão desejada
+      # - name: Configurar Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: "14" 
 
       - name: Instalar dependências
         run: yarn
