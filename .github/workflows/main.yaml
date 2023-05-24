@@ -1,20 +1,27 @@
 name: 🔰 Build on push
-run-name: 🚀 Ação disparada por ${{ github.actor }} 💥
+run-name: 🚀 ${{ github.actor }} is learning GitHub Actions💥
 
-on: push
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout código-fonte
         uses: actions/checkout@v3
 
-      # - name: Configurar Node.js
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: "14"
+      - name: Configurar Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14" # ou a versão desejada
 
       - name: Instalar dependências
         run: yarn
